@@ -2,15 +2,15 @@
 
 
 # --- Setup Envrionment Script ---
-ENV_NAME = "fitme-env"
-PYTHON_VERSION = "3.9"
+ENV_NAME="fitme-env"
+PYTHON_VERSION=3.9
 
-echo "Creating Conda envrionment '$ENV_NAME'..."
+echo "Creating Conda envrionment: $ENV_NAME..."
 
 
 
 # --- Initialize Conda
-CONDA_BASE = "$HOME/miniconda3"
+CONDA_BASE="$HOME/miniconda3"
 source "$CONDA_BASE/etc/profile.d/conda.sh"
 
 
@@ -25,15 +25,16 @@ fi
 
 
 
-# --- Activate Envrionment ---
-conda activate $ENV_NAME
-echo "Envrionment '$ENV_NAME' activated."
-
-
-
 # --- Install Requirements ---
 echo "Installing requirements..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
 echo "Setup complete for environment '$ENV_NAME'."
+
+#Now run conda activate $ENV_NAME to activate it."
+
+
+# --- Activate Envrionment ---
+conda activate $ENV_NAME
+echo "Envrionment $ENV_NAME activated."
