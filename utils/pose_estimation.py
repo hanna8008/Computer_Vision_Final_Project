@@ -1,6 +1,12 @@
 # ---------------------------------------------------
 # pose_estimation.py
 # ---------------------------------------------------
+#
+# This script handles pose detection and keypoint extraction using
+# MediaPipe. It provides a function 'get_body_keypoints()' which:
+#   - Detects pose landmarks from an input image
+#   - Returns keypoints as a dictionary of pixel coordinates
+#   - Optionally draws labeled keypoints and a legend directly on the image
 
 
 
@@ -42,18 +48,6 @@ KEY_LANDMARKS = {
 
 # --- Get Body Keypoints Function ---
 def get_body_keypoints(image_path, draw=False):
-    """
-    Given a path to a person image, return key body landmarks and optionally draw them.
-
-    Arguments:
-        - image_path: str, path to the input image
-        - draw: bool, whether to draw landmarks on the image
-
-    Returns:
-        - keypoints: dict of {landmark_index: (x, y)} in image coordinates
-        - image: original BGR image (with landmarks drawn if draw=True)
-    """
-
     # --- Load and Convert Image ---
     image = cv2.imread(image_path)
     if image is None:
@@ -68,7 +62,9 @@ def get_body_keypoints(image_path, draw=False):
 
         keypoints = {}
 
+        # If landmarks were detected 
         if results.pose_landmarks:
+            # Extract each keypoint and convert to pixel coords
             for i, lm in enumerate(results.pose_landmarks.landmark):
                 x = int(lm.x * width)
                 y = int(lm.y * height)
