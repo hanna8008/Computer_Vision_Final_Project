@@ -32,8 +32,6 @@ pip install -r requirements.txt
 
 echo "Setup complete for environment '$ENV_NAME'."
 
-#Now run conda activate $ENV_NAME to activate it."
-
 
 # --- Activate Envrionment ---
 conda activate $ENV_NAME
