@@ -122,6 +122,6 @@ You’ll pick up where this phase ends:
 ## Authors
 
 **Hanna Zelis**  
-**Asim Wuhadna**
+**Asim Wahedna**
 
 ---
