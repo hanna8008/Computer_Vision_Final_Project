@@ -27,10 +27,10 @@ def load_image(image_path):
 # --- Resize Clothing Function ---
 def resize_clothing(clothing_img, shoulder_left, shoulder_right, hip_left):
     # Calculate distance between shoulders (used for target width)
-    shoulder_width = int(1.1 * np.linalg.norm(np.array(shoulder_right) - np.array(shoulder_left)))
+    shoulder_width = int(3 * np.linalg.norm(np.array(shoulder_right) - np.array(shoulder_left)))
 
     # Compute torso length from shoulder to hip (used for target height)
-    torso_length = int(1.2 * np.linalg.norm(np.array(hip_left) - np.array(shoulder_left)))
+    torso_length = int(3 * np.linalg.norm(np.array(hip_left) - np.array(shoulder_left)))
 
     # Get original dimensions and aspect ratio
     height, width = clothing_img.shape[:2]

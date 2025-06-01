@@ -57,7 +57,7 @@ def get_body_keypoints(image_path, draw=False):
     height, width = image.shape[:2]
 
     # --- Use Mediapipe Pose in Static Image Mode ---
-    with mp_pose.Pose(static_image_mode=True, model_complexity=1, enable_segmentation=False) as pose:
+    with mp_pose.Pose(static_image_mode=True, model_complexity=1, enable_segmentation=True) as pose:
         results = pose.process(image_rgb)
 
         keypoints = {}
@@ -96,4 +96,4 @@ def get_body_keypoints(image_path, draw=False):
                     cv2.rectangle(image, (250, y_pos - 20), (280, y_pos + 10), color, -1)
             
         # --- Return Keypoints and Image ---
-        return keypoints, image if draw else None
+        return keypoints, image
