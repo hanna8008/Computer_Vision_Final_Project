@@ -32,7 +32,7 @@ def fit_clothing_to_keypoints(clothing_img, keypoints, person_shape):
     )
 
     # Amplify the triangle by scaling outwards from center
-    scale_factor = 1.6  
+    scale_factor = 1.6
     dst_pts = np.float32([
         scale_point(left_shoulder, center, scale_factor),
         scale_point(right_shoulder, center, scale_factor),

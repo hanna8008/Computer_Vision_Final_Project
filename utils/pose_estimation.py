@@ -46,9 +46,9 @@ KEY_LANDMARKS = {
 
 
 
-# --- Get Body Keypoints Function ---
+#  Get Body Keypoints Function
 def get_body_keypoints(image_path, draw=False):
-    # --- Load and Convert Image ---
+    #  Load and Convert Image 
     image = cv2.imread(image_path)
     if image is None:
         raise ValueError(f"Image not found at path: {image_path}")
@@ -56,7 +56,7 @@ def get_body_keypoints(image_path, draw=False):
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     height, width = image.shape[:2]
 
-    # --- Use Mediapipe Pose in Static Image Mode ---
+    # Use Mediapipe Pose in Static Image Mode 
     with mp_pose.Pose(static_image_mode=True, model_complexity=1, enable_segmentation=True) as pose:
         results = pose.process(image_rgb)
 
@@ -88,12 +88,12 @@ def get_body_keypoints(image_path, draw=False):
                         cv2.circle(image, (x, y), 10, color, -1)
                         cv2.putText(image, label, (x + 5, y - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.65, color, 1)
 
-                # Add a legend/key to top-left corner
-                legend_start_y = 40
-                for i, (label, color) in enumerate(KEY_LANDMARKS.values()):
-                    y_pos = legend_start_y + i * 30
-                    cv2.putText(image, label, (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 1.0, color, 3)
-                    cv2.rectangle(image, (250, y_pos - 20), (280, y_pos + 10), color, -1)
+                # # Add a legend/key to top-left corner
+                # legend_start_y = 40
+                # for i, (label, color) in enumerate(KEY_LANDMARKS.values()):
+                #     y_pos = legend_start_y + i * 30
+                #     cv2.putText(image, label, (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 1.0, color, 3)
+                #     cv2.rectangle(image, (250, y_pos - 20), (280, y_pos + 10), color, -1)
             
         # --- Return Keypoints and Image ---
         return keypoints, image

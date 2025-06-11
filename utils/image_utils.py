@@ -8,13 +8,13 @@
 
 
 
-# --- Imports ---
+#  Imports
 import cv2
 import numpy as np
 
 
 
-# --- Load Image Function ---
+#  Load Image Function 
 def load_image(image_path):
     # Loads with all channels including alpha channel if present
     image = cv2.imread(image_path, cv2.IMREAD_UNCHANGED)
@@ -24,7 +24,7 @@ def load_image(image_path):
 
 
 
-# --- Resize Clothing Function ---
+#  Resize Clothing Function 
 def resize_clothing(clothing_img, shoulder_left, shoulder_right, hip_left):
     # Calculate distance between shoulders (used for target width)
     shoulder_width = int(3 * np.linalg.norm(np.array(shoulder_right) - np.array(shoulder_left)))
@@ -46,7 +46,7 @@ def resize_clothing(clothing_img, shoulder_left, shoulder_right, hip_left):
 
 
 
-# --- Estimate Overlay Position Function ---
+#  Estimate Overlay Position Function 
 def estimate_overlay_position(keypoints, clothing_img, image_shape=None):
     # Get key shouder points
     left_shoulder = keypoints[11]
@@ -75,7 +75,7 @@ def estimate_overlay_position(keypoints, clothing_img, image_shape=None):
 
 
 
-# --- Overlay Image Function ---
+#  Overlay Image Function 
 def overlay_image(background, overlay, position):
     # Top-left placement coordinates
     x, y = position
