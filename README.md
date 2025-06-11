@@ -26,12 +26,8 @@ The project uses **MediaPipe** to detect anatomical landmarks (e.g., shoulders, 
 │   │       ├── keypoints_visualization.jpg
 │   │       ├── ladytanktopred.jpg
 │   │       ├── Ladytank_keypoints.jpg
-│   │       ├── tanktop output.jpg
-│   │       ├── tanktop test.jpg
-│   │       ├── test with tank top.jpg
 │   │       ├── test with tshirt.jpg
 │   │       ├── test1new_keypoints.jpg
-│   │       └── tryon_result.jpg
 │   └── people/
 │       ├── ladytanklong.jpg
 │       ├── mani1_blue.jpg
